@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Cymon Dez</Authors>
+    <Description>提供使用者創建流水號的套件，使用者可以使用自定義的流水號符號。</Description>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageProjectUrl>https://github.com/cymondez/SerialNumber</PackageProjectUrl>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/cymondez/SerialNumber</RepositoryUrl>
+    <Company>None</Company>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
