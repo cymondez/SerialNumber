@@ -10,7 +10,10 @@ Install-Package SerialNumber
 本套件可以直接使用物件定義流水號格式，亦可使用套件定義的格式化字串。
 **自定義時，請注意文字編碼的問題。**
 
-### 使用*NumberDisk*物件定義
+### 建立 Dispenser
+Dispenser 為此套件的核心，用於建立流水號的迭代器
+
+#### 使用*NumberDisk*物件定義
 
 ```csharp
 using SerialNumber;
@@ -36,7 +39,7 @@ foreach(var sn in dispenser){
 }
 ```
 
-### 使用格式化字串定義
+#### 使用格式化字串定義
 
 ```csharp
 using SerialNumber;
@@ -53,7 +56,7 @@ foreach(var sn in dispenser){
 }
 ```
 
-### 設定流水號的起始值
+####  設定流水號的起始值
 
 使用基本方式設定起始值
 
@@ -95,4 +98,22 @@ using SerialNumer;
 var dispenser = FormatParser.Parse(@"Test-\c:'αβγ'-\a-\d\d");
 //起始值為 Test-β-Z-90
 dispenser.SetStartNumber("Test-β-Z-90");//如果設定字串的格式與流水號不合，將擲出FormatException
+```
+### 建立 Dealer
+Dealer 為 Dispenser 的 逐步迭代用的外覆類別
+```csharp
+var dealer = new Dealer(FormatParser.Parse(@"Test-\a\d"));
+dealer.Dispenser.SetStartNumber("Test-A9"); //設定起始值
+
+Console.WriteLine(dealer.Current()??"NULL"); // 為呼叫Next()前為 null
+
+var firstNumber = dealer.Next(); //取出第一個值 => Test-A9
+var secondNumber = dealer.Next();//取出第二個值 => Test-B0
+
+Console.WriteLine($"firstNumber {firstNumber}，secondNumber:{secondNumber}");
+Console.WriteLine($"Dealer Current : {dealer.Current()}");
+Console.WriteLine($"Dealer Deal Count : {dealer.AlreadyDealCount}");
+
+
+dealer.Reset(); //重設 ，起始值會回到 Test-A9
 ```
