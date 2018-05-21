@@ -90,7 +90,7 @@ namespace SerialNumber {
 
             if ( !_dictSlashSymbol.Keys.Contains(charSymbol) ) {
                 throw new InvalidExpressionException(
-                    @"after symbol '\' must be {" + string.Join("、", _dictSlashSymbol.Keys) + "}");
+                    $"after symbol '\\' must be {{{string.Join("、" , _dictSlashSymbol.Keys)}}}");
             }
 
             _dictSlashSymbol [charSymbol](charSequence);
@@ -101,7 +101,7 @@ namespace SerialNumber {
 
             charSequence.MoveNext();
             var symbol = charSequence.Current;
-            if ( symbol == '\'' ) {
+            if ( symbol == '\'' ) {//symbol is '
                 ParseApostropheSymbol(charSequence);
             }
         }

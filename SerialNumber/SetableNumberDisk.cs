@@ -41,7 +41,7 @@ namespace SerialNumber {
 		protected virtual void CheckSkipInRange( int value ) {
             if (value < 0 || value >= Length)
             {
-                throw new InvalidOperationException(string.Format("skip must be 0 ~ {0} !", Length - 1));
+                throw new InvalidOperationException($"skip must be 0 ~ {Length - 1} !");
             }
 		}
 
