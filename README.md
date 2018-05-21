@@ -7,7 +7,8 @@ Install-Package SerialNumber
 
 ## 如何使用
 
-本套件可以直接使用物件定義流水號格式，亦可使用套鑑定義的格式化字串
+本套件可以直接使用物件定義流水號格式，亦可使用套件定義的格式化字串。
+**自定義時，請注意文字編碼的問題。**
 
 ### 使用*NumberDisk*物件定義
 
@@ -89,7 +90,7 @@ var dispenser = FormatParser.Parse(@"Test-\c:'αβγ'{1}-\a{25}-\d{9}\d");
 使用擴充方法設定
 
 ```csharp
-using SerialNumer
+using SerialNumer;
 
 var dispenser = FormatParser.Parse(@"Test-\c:'αβγ'-\a-\d\d");
 //起始值為 Test-β-Z-90
