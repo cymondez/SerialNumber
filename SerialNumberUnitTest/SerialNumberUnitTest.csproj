@@ -51,6 +51,7 @@
     <Compile Include="DispenserExtensionUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DispenserUnitTest.cs" />
+    <Compile Include="DealerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

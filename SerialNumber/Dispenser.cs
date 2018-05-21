@@ -228,6 +228,11 @@ namespace SerialNumber {
             #endregion
 
             string GetItrsCurrentStringValue ( IEnumerator [] itrs ) {
+
+                if(itrs is null ) {
+                    return null;
+                }
+                
                 StringBuilder sb = new StringBuilder();
                 Array.ForEach(itrs, itr => {
                     if ( itr != null && itr.Current != null ) {
