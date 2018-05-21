@@ -45,7 +45,7 @@ using SerialNumber;
 // \c:'αβγ' ，代表自定義，範圍值為 單引號'' 內的每個字元 ，此例為 α-γ
 // 其餘皆為常值 不會跳號
 //建立流水號 從 Test-α-A-00 至 Test-γ-Z-99
-var dispenser = FormatParser.Parse("Test-\c:'αβγ'-\a-\d\d");
+var dispenser = FormatParser.Parse(@"Test-\c:'αβγ'-\a-\d\d");
 
 foreach(var sn in dispenser){
     Console.WriteLine(sn);
@@ -83,7 +83,7 @@ using SerialNumber;
 
 // 在 變動數值後面加{} ，內部數值為起始的index值(從0起編)
 //起始值為 Test-β-Z-90
-var dispenser = FormatParser.Parse("Test-\c:'αβγ'{1}-\a{25}-\d{9}\d");
+var dispenser = FormatParser.Parse(@"Test-\c:'αβγ'{1}-\a{25}-\d{9}\d");
 
 ```
 使用擴充方法設定
@@ -91,7 +91,7 @@ var dispenser = FormatParser.Parse("Test-\c:'αβγ'{1}-\a{25}-\d{9}\d");
 ```csharp
 using SerialNumer
 
-var dispenser = FormatParser.Parse("Test-\c:'αβγ'-\a-\d\d");
+var dispenser = FormatParser.Parse(@"Test-\c:'αβγ'-\a-\d\d");
 //起始值為 Test-β-Z-90
 dispenser.SetStartNumber("Test-β-Z-90");//如果設定字串的格式與流水號不合，將擲出FormatException
 ```
