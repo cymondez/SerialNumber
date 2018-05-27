@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
     <Authors>Cymon Dez</Authors>
     <Description>提供使用者創建流水號的套件，使用者可以使用自定義的流水號符號。</Description>
     <RepositoryType>GitHub</RepositoryType>
@@ -11,6 +11,7 @@
     <Company>None</Company>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -20,5 +21,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
+
+  <!-- Conditionally obtain references for the .NET Framework 4.0 target -->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+  </ItemGroup>
 
 </Project>
